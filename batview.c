@@ -6,6 +6,7 @@
 #define MAX_FIELDS 100
 int coords[324096];
 int counts=0;
+int ii=0;
 // Define a função de tratamento de mensagens da janela
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 {
@@ -31,7 +32,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
             // Desenha as linhas com base nas coordenadas fornecidas
             
             int count = counts ;
-            Polyline(hdc, (POINT*)coords, count / 2);
+            for(ii=0;ii<count;ii=ii+4)
+            {
+            MoveToEx(hdc,coords[ii], coords[ii+1], NULL);
+            LineTo(hdc, coords[ii+2],coords[ii+3]);
+            }
             
             // Libera os recursos utilizados
             DeleteObject(hPen);
