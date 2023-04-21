@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #define MAX_LINE_LENGTH 1024
 #define MAX_FIELDS 100
-int coords[324096];
+int coords[32496];
 int counts=0;
 int ii=0;
 // Define a função de tratamento de mensagens da janela
